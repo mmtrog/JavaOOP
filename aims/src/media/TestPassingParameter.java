@@ -1,4 +1,4 @@
-package disc;
+package media;
 
 public class TestPassingParameter {
     public static void main(String[] args) {
