@@ -52,4 +52,8 @@ public class Media {
     }
     
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> release/lab06

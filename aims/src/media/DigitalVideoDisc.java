@@ -19,4 +19,8 @@ public class DigitalVideoDisc extends Media {
     }
 
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> release/lab06

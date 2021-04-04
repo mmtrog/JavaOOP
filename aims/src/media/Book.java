@@ -52,4 +52,8 @@ public class Book extends Media {
             }
         }
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> release/lab06
