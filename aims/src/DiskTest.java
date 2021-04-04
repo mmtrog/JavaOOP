@@ -1,6 +1,6 @@
-import disc.*;
-
 import java.util.Scanner;
+
+import media.*;
 
 public class DiskTest {
     public static void main(String[] args) {
