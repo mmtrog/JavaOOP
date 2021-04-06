@@ -12,7 +12,7 @@ public abstract class Media {
         this.category = category;
         this.cost = cost;
     }
-
+    
     //********************************* Getter methods **********************************
     
     public String getTitle() {
