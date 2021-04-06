@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
+import disc.*;
 import media.*;
 import order.*;
 import utils.*;
@@ -28,14 +29,14 @@ public class Aims {
         Scanner scanner2= new Scanner(System.in);
         int op = 1;
 
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Weathering with you", "Animation", 15.54f);    
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Penhouse", "Drama", 56.45f);
-        DigitalVideoDisc dvd4 = new DigitalVideoDisc("My neighbor: Totoro", "Animation", 66.15f);
-        DigitalVideoDisc dvd5 = new DigitalVideoDisc("Naruto", "Animation", 89.35f);
-        DigitalVideoDisc dvd6 = new DigitalVideoDisc("Fast and Slowly", "Action", 45.06f);
-        DigitalVideoDisc dvd7 = new DigitalVideoDisc("My neighbor: Sasuke", "Animation", 36.85f);
-        DigitalVideoDisc dvd8 = new DigitalVideoDisc("My neighbor: Naruto", "Animation", 69.55f);
-        DigitalVideoDisc dvd9 = new DigitalVideoDisc("My neighbor: Sakura", "Animation", 153.15f);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Weathering with you", "Animation", "AAA", 15, 15.54f);    
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Penhouse", "Drama", "BBB", 56,56.45f);
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc("My neighbor: Totoro", "Animation", "CCC", 18, 66.15f);
+        DigitalVideoDisc dvd5 = new DigitalVideoDisc("Naruto", "Animation", "DDD", 68, 89.35f);
+        DigitalVideoDisc dvd6 = new DigitalVideoDisc("Fast and Slowly", "Action", "EEE", 45, 45.06f);
+        DigitalVideoDisc dvd7 = new DigitalVideoDisc("My neighbor: Sasuke", "Animation", "FFF", 19, 36.85f);
+        DigitalVideoDisc dvd8 = new DigitalVideoDisc("My neighbor: Naruto", "Animation", "GGG", 28, 69.55f);
+        DigitalVideoDisc dvd9 = new DigitalVideoDisc("My neighbor: Sakura", "Animation", "HHH", 74, 153.15f);
         
         ArrayList<String> authorsList1 = new ArrayList<String>();
         ArrayList<String> authorsList2 = new ArrayList<String>();
