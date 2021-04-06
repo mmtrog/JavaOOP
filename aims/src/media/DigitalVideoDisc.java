@@ -1,5 +1,6 @@
 package media;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 public class DigitalVideoDisc {
     private String title;
@@ -32,6 +33,8 @@ public class DigitalVideoDisc {
 // ***************************************************************************************************************************
 =======
 >>>>>>> bdd20d0 (Done!)
+=======
+>>>>>>> 87d0206 (backup data)
 
 public class DigitalVideoDisc extends Media {
     
@@ -52,4 +55,8 @@ public class DigitalVideoDisc extends Media {
     }
 
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 87d0206 (backup data)

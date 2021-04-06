@@ -52,4 +52,8 @@ public class Media {
     }
     
     
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 87d0206 (backup data)

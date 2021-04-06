@@ -24,10 +24,14 @@ public class Book extends Media {
     public Book(String title, String category, float cost, ArrayList<String> authorsList) {
         super(title, category, cost);
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.authorsList.addAll(authorsList);
 =======
         this.authorsList = authorsList;
 >>>>>>> bdd20d0 (Done!)
+=======
+        this.authorsList = authorsList;
+>>>>>>> 87d0206 (backup data)
     }
 //************************************* Getters and Setters methods ************************************* 
 
@@ -35,6 +39,7 @@ public class Book extends Media {
 
 //************************************* ArrayList authors method ************************************* 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     public void addAuthors(String author) {
@@ -66,6 +71,8 @@ public class Book extends Media {
 
 }
 =======
+=======
+>>>>>>> 87d0206 (backup data)
     public void addAuthors(String author) {
         for(String authorsCheck : authorsList) {
             if (authorsCheck.equals(author)) {
@@ -87,5 +94,9 @@ public class Book extends Media {
             }
         }
     }
+<<<<<<< HEAD
 }
 >>>>>>> bdd20d0 (Done!)
+=======
+}
+>>>>>>> 87d0206 (backup data)
