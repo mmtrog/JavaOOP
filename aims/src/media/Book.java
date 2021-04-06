@@ -25,6 +25,7 @@ public class Book extends Media {
         super(title, category, cost);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         this.authorsList.addAll(authorsList);
 =======
         this.authorsList = authorsList;
@@ -32,6 +33,9 @@ public class Book extends Media {
 =======
         this.authorsList = authorsList;
 >>>>>>> 87d0206 (backup data)
+=======
+        this.authorsList.addAll(authorsList);
+>>>>>>> f9917c2 (final)
     }
 //************************************* Getters and Setters methods ************************************* 
 
@@ -39,6 +43,7 @@ public class Book extends Media {
 
 //************************************* ArrayList authors method ************************************* 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -73,30 +78,40 @@ public class Book extends Media {
 =======
 =======
 >>>>>>> 87d0206 (backup data)
+=======
+
+>>>>>>> f9917c2 (final)
     public void addAuthors(String author) {
-        for(String authorsCheck : authorsList) {
-            if (authorsCheck.equals(author)) {
-                break;
-            }
-            else {
+        if (authorsList.contains(author)) {
+                System.out.println("Author exist!!!");
+        }
+        else {
                 authorsList.add(author);
-            }
+                System.out.println("Add author successfully!!!");
         }
     }
+ 
      
     public void removeAuthors(String author) {
-        for(String authorsCheck : authorsList) {
-            if (authorsCheck.equals(author)) {
-                authorsList.remove(author);
-            }
-            else {
-                break;
-            }
+        if (authorsList.contains(author)) {
+            authorsList.remove(author);
+            System.out.println("Remove author successfully!!!");
+        }
+        else {
+            System.out.println("Author not exist!!!");
         }
     }
-<<<<<<< HEAD
+
+    public void printAuthors() {
+        for(String test : authorsList) {
+            System.out.println(test);
+        }
+    }
 }
+<<<<<<< HEAD
 >>>>>>> bdd20d0 (Done!)
 =======
 }
 >>>>>>> 87d0206 (backup data)
+=======
+>>>>>>> f9917c2 (final)
