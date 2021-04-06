@@ -13,8 +13,9 @@ public class Test
         nBook.addAuthors("author1");
         nBook.addAuthors("author2");
         nBook.addAuthors("author12");
-
+        nBook.addAuthors("author3");
         nBook.printAuthors();
+        
         System.out.println(nBook.getCost());
     }    
 }
