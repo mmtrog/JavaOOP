@@ -30,7 +30,7 @@ public class Aims {
         
         Thread thread = new Thread(new MemoryDaemon());
         thread.setDaemon(true);
-        
+        thread.start();
 
 
         Order anOrder = new Order(); 
@@ -38,7 +38,7 @@ public class Aims {
         Scanner scanner2= new Scanner(System.in);
         Scanner scanner3 = new Scanner(System.in);
         Scanner scanner4 = new Scanner(System.in);
-        int op = 1;
+        int op1 = 1;
         int op2 = 1;
         int op3;
 
@@ -92,12 +92,12 @@ public class Aims {
         
         //***********************************************************
         
-        thread.start();
+        
 
-        while (op != 0) {
+        while (op1 != 0) {
             showMenu();            
-            op = scanner1.nextInt();
-            switch (op) {
+            op1 = scanner1.nextInt();
+            switch (op1) {
                 case 1:                                   
                     anOrder.addOrdered();
                     if (anOrder.getNbOrdered() >= 0 && anOrder.getNbOrdered() <= 3) {                       
@@ -114,12 +114,25 @@ public class Aims {
                         }
                         
                     }
-                    if (anOrder.getNbOrdered() > 3) {
-                        anOrder.removeOrdered();
-                        anOrder.printList();
-                        anOrder.addOrdered();
-                        System.out.println("Limited ordered!!!");
-                        op = 0;
+                    else {
+                        System.out.println("You are reached limited number order, do you want to quit?");
+                        System.out.println("1. Yes");
+                        System.out.println("2. No");
+                        op3 = scanner2.nextInt();
+                        switch (op3) {
+                            case 1:
+                                anOrder.removeOrdered();
+                                anOrder.printList();
+                                anOrder.addOrdered();
+                                System.out.println("Limited ordered!!!");
+                                op1 = 0;
+                                break;
+                            default:                               
+                                anOrder.removeOrdered();
+                                break;
+                        }
+                        
+                        
                     }
                     break;           
                 case 2:
