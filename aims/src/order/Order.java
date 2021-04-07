@@ -1,6 +1,9 @@
 package order;
 
 import java.util.Scanner;
+
+import disc.CompactDisc;
+
 import java.util.ArrayList;
 
 import utils.*;
@@ -11,19 +14,15 @@ public class Order {
     private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
     private int nbOrdered = 0; 
 
-    public static final int MAX_LIMITTED_ORDERED = 3;
-
     //***************************** Add and Remove methods *****************************
 
-    public int addOrdered() {
-        if (nbOrdered < MAX_LIMITTED_ORDERED) {
-            nbOrdered++;
-        }
+    public int addOrdered() {    
+        nbOrdered++;
         return nbOrdered;
     }
 
     public int removeOrdered() {
-        if (nbOrdered >= 0) {
+        if (nbOrdered > 0) {
             nbOrdered--;
         }
         return nbOrdered;
@@ -33,6 +32,15 @@ public class Order {
         itemsOrdered.add(media);
         System.out.println("Your item is successfully added: ");
         System.out.print(media.getTitle() + " ### " + media.getCost());
+        System.out.println(totalCost()); 
+    }
+
+    public void addCompact(CompactDisc cd) {
+        itemsOrdered.add(cd);
+        System.out.println("Your item is successfully added: ");
+        System.out.println(cd.getClass() + " ### " + cd.getTitle() + " ### " + cd.getCost());
+        System.out.println("Track info: ");
+        cd.printTrackList();
         System.out.println(totalCost());
     }
 

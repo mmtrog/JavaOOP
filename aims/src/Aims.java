@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 
+
 import disc.*;
 import media.*;
 import order.*;
@@ -23,11 +24,25 @@ public class Aims {
     }
       
     public static void main(String[] args) {
-        //************************** Data ***************************
+        
+        //**************************************** Variables ****************************************
+
+        
+        Thread thread = new Thread(new MemoryDaemon());
+        thread.setDaemon(true);
+        
+
+
         Order anOrder = new Order(); 
         Scanner scanner1 = new Scanner(System.in);
         Scanner scanner2= new Scanner(System.in);
+        Scanner scanner3 = new Scanner(System.in);
+        Scanner scanner4 = new Scanner(System.in);
         int op = 1;
+        int op2 = 1;
+        int op3;
+
+        //**************************************** Data ****************************************
 
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("Weathering with you", "Animation", "AAA", 15, 15.54f);    
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("Penhouse", "Drama", "BBB", 56,56.45f);
@@ -42,7 +57,7 @@ public class Aims {
         ArrayList<String> authorsList2 = new ArrayList<String>();
         ArrayList<String> authorsList3 = new ArrayList<String>();
         ArrayList<String> authorsList4 = new ArrayList<String>(); 
-        
+
         authorsList1.add("Tony buoi sang");
         authorsList2.add("Tony buoi trua");
         authorsList2.add("Tony buoi chieu");
@@ -52,21 +67,40 @@ public class Aims {
         authorsList4.add("Tony buổi binh minh");
         authorsList4.add("Tony buoi xe chieu");
 
-        Book b1 = new Book("Tren duong bang", "Selfhelp", 159.55f, authorsList1);
+        ArrayList<Track> trackList1 = new ArrayList<Track>();
+        ArrayList<Track> trackList2 = new ArrayList<Track>();
+
+
+        trackList1.add(new Track("Thu do Cypher", 15));
+        trackList1.add(new Track("Rap cham thoi", 19));
+        trackList1.add(new Track("Tan gai 707", 22));
+        trackList2.add(new Track("Con mua ngang qua", 31));
+        trackList2.add(new Track("Nang am xa dan", 17));
+
+        Book b1 = new Book("Tren duong bang", "SelfHelp", 159.55f, authorsList1);
         Book b2 = new Book("Tren duong cao toc", "Racer", 194.54f, authorsList2);
         Book b3 = new Book("Tren đuong toan o ga", "The traffic of Vietnam", 114.54f, authorsList3);
         Book b4 = new Book("Tren duong dan sinh", "The traffic hack", 56.54f, authorsList4);
 
-        Media arrMediaList[] = {dvd2, dvd3, dvd4, dvd5, dvd6, dvd7, dvd8, dvd9, b1, b2, b3, b4};
+        CompactDisc cd1 = new CompactDisc("Hip Hop never die", "Hip Hop", "Trong dep trai", "Low G ft MCK", 0, 99.05f, trackList1);
+        CompactDisc cd2 = new CompactDisc("Son Tung M-TP", "Underground", "Trong dep trai", "Nguyen Son Tung", 0, 19.25f, trackList2);
+
+        Media arrMediaList[] = {dvd2, dvd3, dvd4, dvd5, dvd6, dvd7, dvd8, dvd9, cd1, cd2, b1, b2, b3, b4};
+        DigitalVideoDisc arrDvdList[] = {dvd2, dvd3, dvd4, dvd5, dvd6, dvd7, dvd8, dvd9};
+        CompactDisc arrCdList[] = {cd1, cd2};
+        Book arrBookList[] = {b1, b2, b3, b4};
+        
         //***********************************************************
         
+        thread.start();
+
         while (op != 0) {
             showMenu();            
             op = scanner1.nextInt();
             switch (op) {
                 case 1:                                   
                     anOrder.addOrdered();
-                    if (anOrder.getNbOrdered() != 0 && anOrder.getNbOrdered() <=3) {
+                    if (anOrder.getNbOrdered() >= 0 && anOrder.getNbOrdered() <= 3) {                       
                         if (anOrder.getNbOrdered()>1) {
                             anOrder.removeOrdered();
                             anOrder.printList();
@@ -78,9 +112,14 @@ public class Aims {
                         else {
                             System.out.println("Your ordered are ready!");                            
                         }
+                        
                     }
-                    else {
-                        System.out.println("Limited number of Ordered!!!");
+                    if (anOrder.getNbOrdered() > 3) {
+                        anOrder.removeOrdered();
+                        anOrder.printList();
+                        anOrder.addOrdered();
+                        System.out.println("Limited ordered!!!");
+                        op = 0;
                     }
                     break;           
                 case 2:
@@ -88,21 +127,82 @@ public class Aims {
                     if (anOrder.getNbOrdered() == 0) {
                         System.out.println("You have no Ordered! Choose 1 on Menu to creat an Ordered!");
                     }
-                    else {
-                        System.out.println("Input name of media:");
-                        String nameMedia = scanner2.nextLine();
-                        System.out.println("\n");
-                        for(Media mediaCheck : arrMediaList) {
-                            if (nameMedia.equals(mediaCheck.getTitle())) {
-                                anOrder.addMedia(mediaCheck);
-                                count++;
+                    else {                        
+                        while (op2 != 0) {
+                            System.out.println("Choose type: ");
+                            System.out.println("1. Book");
+                            System.out.println("2. Digital Video Disc");
+                            System.out.println("3. Compact Disc");
+                            System.out.println("0. Exit");
+                            System.out.println("You choose: ");
+                            
+                            op2 = scanner3.nextInt();
+
+                            switch (op2) {
+                                case 1:
+                                    System.out.println("Input name of Book:");
+                                    String nameBook = scanner2.nextLine();
+                                    System.out.println("\n");
+                                    for(Media mediaCheck : arrMediaList) {
+                                    if (nameBook.equals(mediaCheck.getTitle())) {
+                                        anOrder.addMedia(mediaCheck);
+                                        count++;
+                                    }
+                                    }
+                                    if (count == 0) {
+                                    System.out.println("Not exist Media!!!");
+                                    }
+                                    break;
+                                case 2:
+                                    System.out.println("Input name of DVD:");
+                                    String nameDVD = scanner2.nextLine();
+                                    System.out.println("\n");
+                                    for(Media mediaCheck : arrMediaList) {
+                                        if (nameDVD.equals(mediaCheck.getTitle())) {
+                                            anOrder.addMedia(mediaCheck);
+                                            count++;
+                                        }
+                                    }
+                                    if (count == 0) {
+                                    System.out.println("Not exist Media!!!");
+                                    }
+                                    break;
+                                
+                                case 3:
+                                    System.out.println("Input name of CD:");
+                                    String nameCD = scanner2.nextLine();
+                                    System.out.println("\n");                             
+                                    for(CompactDisc cdCheck : arrCdList) {
+                                        if (nameCD.equals(cdCheck.getTitle())) {
+                                            anOrder.addCompact(cdCheck);                                            
+                                            count++;
+                                        }
+                                    }                                                               
+                                    if (count == 0) {
+                                    System.out.println("Not exist Media!!!");
+                                    }
+                                    else {
+                                        System.out.println("Before completed, do you want to play track?");
+                                        System.out.println("1. Yes");
+                                        System.out.println("2. No");
+                                        op3 = scanner4.nextInt();
+                                        if (op3 == 1) {
+                                            for(CompactDisc cdCheck : arrCdList) {
+                                                if (nameCD.equals(cdCheck.getTitle())) {
+                                                    cdCheck.playTrack();
+                                                }
+                                            }
+                                        }
+                                    }
+                                    break;                                    
+                                default:
+                                    break;
                             }
-                        }
-                        if (count == 0) {
-                            System.out.println("Not exist Media!!!");
+
                         }
                     }
                     break;
+
                 case 3:
                     int choose;
                     if (anOrder.getNbOrdered() == 0) {
@@ -118,6 +218,7 @@ public class Aims {
                             choose = scanner2.nextInt();
                             anOrder.removeMediaBuyNumber(choose);
                             System.out.println("Remove successfully!");
+                            
                         }
                     }
                     break;

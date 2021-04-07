@@ -6,11 +6,12 @@ import java.util.ArrayList;
 public class CompactDisc extends Disc implements Playable{
 
     private String artist;
-    ArrayList<Track> trackList = new ArrayList<>();
+    private ArrayList<Track> trackList = new ArrayList<>();
     
-    public CompactDisc (String title, String category, String director, String artist,int length, float cost) {
+    public CompactDisc (String title, String category, String director, String artist,int length, float cost, ArrayList<Track> trackList) {
         super(title, category, director, length, cost);
         this.artist = artist;
+        this.trackList.addAll(trackList);
     }
 
     public String getArtist() {
@@ -41,9 +42,13 @@ public class CompactDisc extends Disc implements Playable{
     
     @Override
     public int getLength() {
+        return length;
+    }
+
+    public int setLength() {
         for(Track trackTest : trackList) {
             length += trackTest.getLength();
-        }
+        };
         return length;
     }
 
@@ -51,6 +56,18 @@ public class CompactDisc extends Disc implements Playable{
     public void play() {
         System.out.println("Playing CD: " + this.title + " ### " + this.category + " ### " + this.director + " ### " + getArtist());
         System.out.println("Total CD length: " + this.getLength());
+        for(Track trackTest : trackList) {
+            trackTest.play();
+        }
+    }
+
+    public void printTrackList() {
+        for(Track trackTest : trackList) {
+            System.out.println(trackTest.getTitle() + " ### " + trackTest.getLength());
+        }
+    }
+
+    public void playTrack() {
         for(Track trackTest : trackList) {
             trackTest.play();
         }
