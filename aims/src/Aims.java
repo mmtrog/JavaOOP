@@ -79,7 +79,7 @@ public class Aims {
 
         Book b1 = new Book("Tren duong bang", "SelfHelp", 159.55f, authorsList1);
         Book b2 = new Book("Tren duong cao toc", "Racer", 194.54f, authorsList2);
-        Book b3 = new Book("Tren đuong toan o ga", "The traffic of Vietnam", 114.54f, authorsList3);
+        Book b3 = new Book("Tren duong toan o ga", "The traffic of Vietnam", 114.54f, authorsList3);
         Book b4 = new Book("Tren duong dan sinh", "The traffic hack", 56.54f, authorsList4);
 
         CompactDisc cd1 = new CompactDisc("Hip Hop never die", "Hip Hop", "Trong dep trai", "Low G ft MCK", 0, 99.05f, trackList1);
