@@ -1,6 +1,5 @@
 package disc;
 
-import media.*;
 import java.util.ArrayList;
 
 public class CompactDisc extends Disc implements Playable{

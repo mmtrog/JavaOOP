@@ -1,7 +1,4 @@
 package disc;
-
-import media.*;
-
 public class DigitalVideoDisc extends Disc implements Playable{
 
     public DigitalVideoDisc(String title, String category, String director,int length, float cost) {
