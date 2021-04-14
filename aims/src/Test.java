@@ -21,8 +21,8 @@ public class Test
         trackList2.add(new Track("Con mua ngang qua", 31));
         trackList2.add(new Track("Nang am xa dan", 17));
         
-        CompactDisc cd1 = new CompactDisc("Hip Hop never die", "Hip Hop", "Trong dep trai", "Low G ft MCK", 0, 99.05f, trackList1);
-        CompactDisc cd2 = new CompactDisc("Son Tung M-TP", "Underground", "Trong dep trai", "Nguyen Son Tung", 0, 19.25f, trackList2);
+        CompactDisc cd1 = new CompactDisc(1, "Hip Hop never die", "Hip Hop", "Trong dep trai", "Low G ft MCK", 0, 99.05f, trackList1);
+        CompactDisc cd2 = new CompactDisc(2, "Son Tung M-TP", "Underground", "Trong dep trai", "Nguyen Son Tung", 0, 19.25f, trackList2);
 
 
     }    

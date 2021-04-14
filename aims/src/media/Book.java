@@ -6,8 +6,8 @@ public class Book extends Media {
     
 //************************************* Constructors *************************************
     
-    public Book(String title, String category, float cost, ArrayList<String> authorsList) {
-        super(title, category, cost);
+    public Book(int id, String title, String category, float cost, ArrayList<String> authorsList) {
+        super(id, title, category, cost);
         this.authorsList.addAll(authorsList);
     }
 //************************************* Getters and Setters methods ************************************* 

@@ -44,14 +44,14 @@ public class Aims {
 
         //**************************************** Data ****************************************
 
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc("Weathering with you", "Animation", "AAA", 15, 15.54f);    
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc("Penhouse", "Drama", "BBB", 56,56.45f);
-        DigitalVideoDisc dvd4 = new DigitalVideoDisc("My neighbor: Totoro", "Animation", "CCC", 18, 66.15f);
-        DigitalVideoDisc dvd5 = new DigitalVideoDisc("Naruto", "Animation", "DDD", 68, 89.35f);
-        DigitalVideoDisc dvd6 = new DigitalVideoDisc("Fast and Slowly", "Action", "EEE", 45, 45.06f);
-        DigitalVideoDisc dvd7 = new DigitalVideoDisc("My neighbor: Sasuke", "Animation", "FFF", 19, 36.85f);
-        DigitalVideoDisc dvd8 = new DigitalVideoDisc("My neighbor: Naruto", "Animation", "GGG", 28, 69.55f);
-        DigitalVideoDisc dvd9 = new DigitalVideoDisc("My neighbor: Sakura", "Animation", "HHH", 74, 153.15f);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc(1, "Weathering with you", "Animation", "AAA", 15, 15.54f);    
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc(2, "Penhouse", "Drama", "BBB", 56,56.45f);
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc(3, "My neighbor: Totoro", "Animation", "CCC", 18, 66.15f);
+        DigitalVideoDisc dvd5 = new DigitalVideoDisc(4, "Naruto", "Animation", "DDD", 68, 89.35f);
+        DigitalVideoDisc dvd6 = new DigitalVideoDisc(5, "Fast and Slowly", "Action", "EEE", 45, 45.06f);
+        DigitalVideoDisc dvd7 = new DigitalVideoDisc(6, "My neighbor: Sasuke", "Animation", "FFF", 19, 36.85f);
+        DigitalVideoDisc dvd8 = new DigitalVideoDisc(7, "My neighbor: Naruto", "Animation", "GGG", 28, 69.55f);
+        DigitalVideoDisc dvd9 = new DigitalVideoDisc(8, "My neighbor: Sakura", "Animation", "HHH", 74, 153.15f);
         
         ArrayList<String> authorsList1 = new ArrayList<String>();
         ArrayList<String> authorsList2 = new ArrayList<String>();
@@ -77,13 +77,13 @@ public class Aims {
         trackList2.add(new Track("Con mua ngang qua", 31));
         trackList2.add(new Track("Nang am xa dan", 17));
 
-        Book b1 = new Book("Tren duong bang", "SelfHelp", 159.55f, authorsList1);
-        Book b2 = new Book("Tren duong cao toc", "Racer", 194.54f, authorsList2);
-        Book b3 = new Book("Tren duong toan o ga", "The traffic of Vietnam", 114.54f, authorsList3);
-        Book b4 = new Book("Tren duong dan sinh", "The traffic hack", 56.54f, authorsList4);
+        Book b1 = new Book(9, "Tren duong bang", "SelfHelp", 159.55f, authorsList1);
+        Book b2 = new Book(10, "Tren duong cao toc", "Racer", 194.54f, authorsList2);
+        Book b3 = new Book(11, "Tren duong toan o ga", "The traffic of Vietnam", 114.54f, authorsList3);
+        Book b4 = new Book(12, "Tren duong dan sinh", "The traffic hack", 56.54f, authorsList4);
 
-        CompactDisc cd1 = new CompactDisc("Hip Hop never die", "Hip Hop", "Trong dep trai", "Low G ft MCK", 0, 99.05f, trackList1);
-        CompactDisc cd2 = new CompactDisc("Son Tung M-TP", "Underground", "Trong dep trai", "Nguyen Son Tung", 0, 19.25f, trackList2);
+        CompactDisc cd1 = new CompactDisc(13, "Hip Hop never die", "Hip Hop", "Trong dep trai", "Low G ft MCK", 0, 99.05f, trackList1);
+        CompactDisc cd2 = new CompactDisc(14, "Son Tung M-TP", "Underground", "Trong dep trai", "Nguyen Son Tung", 0, 19.25f, trackList2);
 
         Media arrMediaList[] = {dvd2, dvd3, dvd4, dvd5, dvd6, dvd7, dvd8, dvd9, cd1, cd2, b1, b2, b3, b4};
         DigitalVideoDisc arrDvdList[] = {dvd2, dvd3, dvd4, dvd5, dvd6, dvd7, dvd8, dvd9};
