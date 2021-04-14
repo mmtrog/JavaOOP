@@ -1,7 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Collections;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.List;
 
 import disc.*;
 import media.*;
@@ -12,12 +14,17 @@ public class Test
 {
     
     public static void main(String[] args) {
+        
+
         ArrayList<Track> trackList1 = new ArrayList<Track>();
         ArrayList<Track> trackList2 = new ArrayList<Track>();
 
         Disc disc1 = new Disc(1, "Son Tung M-TP", "Underground", "Trong dep trai", 12 ,19.25f);
 
-        DigitalVideoDisc dvd = new DigitalVideoDisc(2, "Hip Hop never die", "Hip Hop", "Trong dep trai", 36, 25.20f);
+        DigitalVideoDisc dvd1 = new DigitalVideoDisc(21, "DDD", "Hip Hop", "Trong dep trai", 36, 25.20f);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc(22, "AAA", "Hip Hop", "Trong dep trai", 36, 25.20f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc(23, "CCA", "Hip Hop", "Trong dep trai", 36, 25.20f);
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc(23, "CCB", "Hip Hop", "Trong dep trai", 36, 25.20f);
 
         trackList1.add(new Track("Thu do Cypher", 15));
         trackList1.add(new Track("Rap cham thoi", 19));
@@ -29,21 +36,36 @@ public class Test
         CompactDisc cd2 = new CompactDisc(4, "Son Tung M-TP", "Underground", "Trong dep trai", "Nguyen Son Tung", 13, 19.25f, trackList2);
 
         Collection collection = new ArrayList<>();
+        
         //collection.add(disc1);
-        collection.add(dvd);
-        //collection.add(cd1);
-        //collection.add(cd2);
+        collection.add(dvd1);
+        collection.add(dvd2);
+        collection.add(dvd3);
+        collection.add(dvd4);
+
+
 
         Iterator iterator = collection.iterator();
 
-        //System.out.println("Cha hieu cai cc gi!!!");
+        System.out.println("---------------------------------------");
 
-        //System.out.println(cd1.compareTo(disc1));
-        
+        System.out.println("The DVDs currently in the order are: ");
+
+
         while (iterator.hasNext()) {
             System.out.println(((DigitalVideoDisc)iterator.next()).getTitle());
         }
 
-        //Collections.sort((List)collection);
+        Collections.sort((List)collection);
+
+        iterator = collection.iterator();
+
+        System.out.println("---------------------------------------");
+        System.out.println("The DVDs in sorted order are: ");
+
+        while (iterator.hasNext()) {
+            System.out.println(((DigitalVideoDisc)iterator.next()).getTitle());
+        }
+        
     }    
 }
