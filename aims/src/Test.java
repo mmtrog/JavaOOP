@@ -29,16 +29,16 @@ public class Test
         CompactDisc cd2 = new CompactDisc(4, "Son Tung M-TP", "Underground", "Trong dep trai", "Nguyen Son Tung", 13, 19.25f, trackList2);
 
         Collection collection = new ArrayList<>();
-        collection.add(disc1);
+        //collection.add(disc1);
         collection.add(dvd);
-        collection.add(cd1);
-        collection.add(cd2);
+        //collection.add(cd1);
+        //collection.add(cd2);
 
         Iterator iterator = collection.iterator();
 
-        System.out.println("Cha hieu cai cc gi!!!");
+        //System.out.println("Cha hieu cai cc gi!!!");
 
-        System.out.println(cd1.compareTo(disc1));
+        //System.out.println(cd1.compareTo(disc1));
         
         while (iterator.hasNext()) {
             System.out.println(((DigitalVideoDisc)iterator.next()).getTitle());
