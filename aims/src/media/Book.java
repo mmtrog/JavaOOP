@@ -1,7 +1,7 @@
 package media;
 import java.util.ArrayList;
 
-public class Book extends Media {
+public class Book extends Media implements Comparable {
     private ArrayList<String> authorsList = new ArrayList<String>();
     
 //************************************* Constructors *************************************
@@ -42,5 +42,16 @@ public class Book extends Media {
         for(String test : authorsList) {
             System.out.println(test);
         }
+    }
+
+
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Book) {
+            Book book = (Book) o;
+            return book.getTitle().compareTo(this.title);                 
+        }
+        return 0;
     }
 }
