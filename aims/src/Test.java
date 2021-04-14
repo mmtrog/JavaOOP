@@ -43,5 +43,7 @@ public class Test
         while (iterator.hasNext()) {
             System.out.println(((DigitalVideoDisc)iterator.next()).getTitle());
         }
+
+        //Collections.sort((List)collection);
     }    
 }
