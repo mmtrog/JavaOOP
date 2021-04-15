@@ -1,13 +1,13 @@
 package media;
 
-public abstract class Media implements Comparable<Object> {
+public class Media implements Comparable<Object> {
     
     protected String title;
     protected String category;
-    protected float cost;
+    protected Float cost;
     protected int id;
     
-    public Media(int id,String title, String category, float cost) {
+    public Media(int id,String title, String category, Float cost) {
         this.title = title;
         this.category = category;
         this.cost = cost;
@@ -28,7 +28,7 @@ public abstract class Media implements Comparable<Object> {
         return category;
     }
    
-    public float getCost() {
+    public Float getCost() {
         return cost;
     }
     
@@ -49,7 +49,7 @@ public abstract class Media implements Comparable<Object> {
     public int compareTo(Object o) {
         if (o instanceof Media) {
             Media media = (Media) o;
-            return this.title.compareTo(media.getTitle());                 
+            return this.cost.compareTo(media.getCost());                 
         }
         return 1;
     }

@@ -23,9 +23,9 @@ public class Test
         Disc disc1 = new Disc(1, "Son Tung M-TP", "Underground", "Trong dep trai", 12 ,19.25f);
 
         DigitalVideoDisc dvd1 = new DigitalVideoDisc(21, "DDD", "Hip Hop", "Trong dep trai", 36, 25.20f);
-        DigitalVideoDisc dvd2 = new DigitalVideoDisc(22, "AAA", "Hip Hop", "Trong dep trai", 36, 25.20f);
-        DigitalVideoDisc dvd3 = new DigitalVideoDisc(23, "CCA", "Hip Hop", "Trong dep trai", 36, 25.20f);
-        DigitalVideoDisc dvd4 = new DigitalVideoDisc(23, "CCB", "Hip Hop", "Trong dep trai", 36, 25.20f);
+        DigitalVideoDisc dvd2 = new DigitalVideoDisc(22, "AAA", "Hip Hop", "Trong dep trai", 36, 23.20f);
+        DigitalVideoDisc dvd3 = new DigitalVideoDisc(23, "CCA", "Hip Hop", "Trong dep trai", 36, 251.20f);
+        DigitalVideoDisc dvd4 = new DigitalVideoDisc(23, "CCB", "Hip Hop", "Trong dep trai", 36, 95.20f);
 
         trackList1.add(new Track("Thu do Cypher", 15));
         trackList1.add(new Track("Rap cham thoi", 19));
@@ -37,7 +37,7 @@ public class Test
         CompactDisc cd2 = new CompactDisc(4, "Son Tung M-TP", "Underground", "Trong dep trai", "Nguyen Son Tung", 13, 19.25f, trackList2);
 
         
-        Collection<Media> collection = new ArrayList<>();
+        Collection<Media> collection = new ArrayList<>(); // up_casting ArrayList --> Collection  
         
         
         collection.add(disc1);
@@ -57,7 +57,8 @@ public class Test
 
 
         while (iterator.hasNext()) {
-            System.out.println(((Media)iterator.next()).getTitle());
+            Media mediaCheck = (Media)iterator.next();
+            System.out.println(mediaCheck.getCost() + " ### " + mediaCheck.getTitle());
         }
      
         if (collection instanceof List) {
@@ -73,8 +74,9 @@ public class Test
         System.out.println("The DVDs in sorted order are: ");
 
         while (iterator.hasNext()) {
-            System.out.println(((Media)iterator.next()).getTitle());
+            Media mediaCheck = (Media)iterator.next();
+            System.out.println(mediaCheck.getCost() + " ### " + mediaCheck.getTitle());
         }
-        
+     
     }    
 }
