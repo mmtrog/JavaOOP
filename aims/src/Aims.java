@@ -14,10 +14,11 @@ public class Aims {
     public static void showMenu() {
         System.out.println("\nOrder Management Application: ");
         System.out.println("--------------------------------");
-        System.out.println("1. Create new order");
-        System.out.println("2. Add item to the order");
-        System.out.println("3. Delete item by id");
-        System.out.println("4. Display the items list of order");
+        System.out.println("1. Create new order.");
+        System.out.println("2. Add item to the order.");
+        System.out.println("3. Delete item by id.");
+        System.out.println("4. Display the items list of order.");
+        System.out.println("5. Sort by cost of item.");
         System.out.println("0. Exit");
         System.out.println("--------------------------------");
         System.out.println("Please choose a number: 0-1-2-3-4");
@@ -229,9 +230,7 @@ public class Aims {
                             anOrder.printList();
                             System.out.println("Choose items want to remove!!!");
                             choose = scanner2.nextInt();
-                            anOrder.removeMediaBuyNumber(choose);
-                            System.out.println("Remove successfully!");
-                            
+                            anOrder.removeMediaBuyNumber(choose);                            
                         }
                     }
                     break;
@@ -243,6 +242,9 @@ public class Aims {
                     anOrder.printList();
                     }
                     break;
+                case 5:
+                    anOrder.sortOrder();
+                    break;    
                 default:
                     break;
             }
