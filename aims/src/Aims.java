@@ -132,16 +132,17 @@ public class Aims {
                                 anOrder.removeOrdered();
                                 break;
                         }
-                        
-                        
                     }
                     break;           
+                
                 case 2:
                     int count = 0;
-                    if (anOrder.getNbOrdered() == 0) {
-                        System.out.println("You have no Ordered! Choose 1 on Menu to creat an Ordered!");
+                    System.out.println("ERROR!!!");
+                    if(anOrder.getNbOrdered() == 0) {
+                        System.out.println("You have no Ordered! Choose 1 on Menu to create an Ordered!");
                     }
                     else {                        
+                        System.out.println("ERROR!!!");
                         while (op2 != 0) {
                             System.out.println("Choose type: ");
                             System.out.println("1. Book");
