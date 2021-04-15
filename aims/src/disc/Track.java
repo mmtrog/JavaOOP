@@ -1,6 +1,6 @@
 package disc;
 
-public class Track implements Playable, Comparable{
+public class Track implements Playable, Comparable<Object> {
     private String title;
     private int length;
 
@@ -40,7 +40,7 @@ public class Track implements Playable, Comparable{
     public int compareTo(Object o) {
         if (o instanceof Track) {
             Track book = (Track) o;
-            return book.getTitle().compareTo(this.title);                 
+            return this.title.compareTo(book.getTitle());                 
         }
         return 0;
     }

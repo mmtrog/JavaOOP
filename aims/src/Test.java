@@ -1,9 +1,10 @@
 import java.util.ArrayList;
-import java.util.Scanner;
+//import java.util.Scanner;
 import java.util.Collections;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+//import java.util.Comparator;
 
 import disc.*;
 import media.*;
@@ -35,18 +36,20 @@ public class Test
         CompactDisc cd1 = new CompactDisc(3, "Hip Hop never die", "Hip Hop", "Trong dep trai", "Low G ft MCK", 15, 99.05f, trackList1);
         CompactDisc cd2 = new CompactDisc(4, "Son Tung M-TP", "Underground", "Trong dep trai", "Nguyen Son Tung", 13, 19.25f, trackList2);
 
-        Collection collection = new ArrayList<>();
+        
+        Collection<Media> collection = new ArrayList<>();
         
         
-        //collection.add(disc1);
+        collection.add(disc1);
         collection.add(dvd1);
         collection.add(dvd2);
         collection.add(dvd3);
         collection.add(dvd4);
+        collection.add(cd1);
+        collection.add(cd2);
 
 
-
-        Iterator iterator = collection.iterator();
+        Iterator<Media> iterator = collection.iterator(); // dùng nội dung của collection bằng iterator
 
         System.out.println("---------------------------------------");
 
@@ -54,18 +57,23 @@ public class Test
 
 
         while (iterator.hasNext()) {
-            System.out.println(((DigitalVideoDisc)iterator.next()).getTitle());
+            System.out.println(((Media)iterator.next()).getTitle());
         }
-
-        Collections.sort((List)collection);
-
+     
+        if (collection instanceof List) {
+            Collections.sort((List)collection);
+        }
+        else {
+            System.out.println("Can't sort this collection");
+        }
+        
         iterator = collection.iterator();
 
         System.out.println("---------------------------------------");
         System.out.println("The DVDs in sorted order are: ");
 
         while (iterator.hasNext()) {
-            System.out.println(((DigitalVideoDisc)iterator.next()).getTitle());
+            System.out.println(((Media)iterator.next()).getTitle());
         }
         
     }    

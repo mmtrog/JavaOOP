@@ -1,6 +1,6 @@
 package media;
 
-public abstract class Media {
+public abstract class Media implements Comparable<Object> {
     
     protected String title;
     protected String category;
@@ -43,4 +43,14 @@ public abstract class Media {
         return false;
     }
 
+    //********************************* Override Sort method **********************************
+
+    @Override
+    public int compareTo(Object o) {
+        if (o instanceof Media) {
+            Media media = (Media) o;
+            return this.title.compareTo(media.getTitle());                 
+        }
+        return 1;
+    }
 }

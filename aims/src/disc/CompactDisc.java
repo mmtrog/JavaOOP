@@ -2,7 +2,7 @@ package disc;
 
 import java.util.ArrayList;
 
-public class CompactDisc extends Disc implements Playable, Comparable{
+public class CompactDisc extends Disc implements Playable{
 
     private String artist;
     private ArrayList<Track> trackList = new ArrayList<>();
@@ -70,17 +70,6 @@ public class CompactDisc extends Disc implements Playable, Comparable{
         for(Track trackTest : trackList) {
             trackTest.play();
         }
-    }
-
-    //********************************* compareTo method **********************************
-
-    @Override
-    public int compareTo(Object o) {
-        if (o instanceof CompactDisc) {
-            CompactDisc cd = (CompactDisc) o;
-            return cd.getTitle().compareTo(this.title);                 
-        }
-        return 0;
     }
 
 }
