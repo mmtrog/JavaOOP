@@ -244,8 +244,7 @@ public class Aims {
                     }
                     break;
                 case 5:
-                    anOrder.sortOrder();
-                    break;    
+                       
                 default:
                     break;
             }

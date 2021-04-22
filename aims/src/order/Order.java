@@ -1,19 +1,17 @@
 package order;
 
 import java.util.Scanner;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
 
-import disc.*;
+import disc.CompactDisc;
+
+import java.util.ArrayList;
+
 import utils.*;
 import media.*;
 
 
 public class Order {
-    private Collection<Media> itemsOrdered = new ArrayList<Media>();
+    private ArrayList<Media> itemsOrdered = new ArrayList<Media>();
     private int nbOrdered = 0; 
 
     //***************************** Add and Remove methods *****************************
@@ -54,18 +52,8 @@ public class Order {
     }
 
     public void removeMediaBuyNumber (int number) {
-        Iterator<Media> iterator = itemsOrdered.iterator();
-        int count = 0;
-
-        while(iterator.hasNext()) {
-            count++;
-            Media media = iterator.next();
-            if (count == number) {
-                iterator.remove();
-            }
-        }
-        
-        System.out.println("Remove successfully!");
+        number--;
+        itemsOrdered.remove(number);
         System.out.println("Total cost: " + totalCost());
     }
 
@@ -106,25 +94,5 @@ public class Order {
             System.out.print(mediaCheck.getTitle() + " ### " + mediaCheck.getCategory() + " ### " + mediaCheck.getCost() + "\n");
         }
         System.out.println("Total cost: " + totalCost());
-    }
-
-    //********************************* Sort method **********************************
-
-    public void sortOrder() {
-        int count = 0;
-        Iterator<Media> iterator = itemsOrdered.iterator();
-        if (itemsOrdered instanceof List) {
-            Collections.sort((List)itemsOrdered);
-            System.out.println("The items in sorted order are: ");
-            while (iterator.hasNext()) {
-                count++;
-                Media mediaCheck = (Media)iterator.next();
-                System.out.println(count + ". " + mediaCheck.getCost() + " ### " + mediaCheck.getTitle() + " ### " + mediaCheck.getCategory());
-            }
-        }
-        else {
-            System.out.println("SYSTEM ERROR!!!");
-        }
-
     }
 }
