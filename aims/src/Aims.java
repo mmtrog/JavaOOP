@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import disc.*;
 import media.*;
 import order.*;
-import utils.*;
+//import utils.*;
 
 public class Aims {
     
@@ -137,12 +137,10 @@ public class Aims {
                 
                 case 2:
                     int count = 0;
-                    System.out.println("ERROR!!!");
                     if(anOrder.getNbOrdered() == 0) {
                         System.out.println("You have no Ordered! Choose 1 on Menu to create an Ordered!");
                     }
-                    else {                        
-                        System.out.println("ERROR!!!");
+                    else {
                         while (op2 != 0) {
                             System.out.println("Choose type: ");
                             System.out.println("1. Book");
@@ -215,6 +213,7 @@ public class Aims {
                             }
 
                         }
+                        op2 = 1;
                     }
                     break;
 
@@ -244,7 +243,8 @@ public class Aims {
                     }
                     break;
                 case 5:
-                       
+                    anOrder.sortList();
+                    break;
                 default:
                     break;
             }

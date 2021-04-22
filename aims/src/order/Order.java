@@ -1,12 +1,14 @@
 package order;
 
-import java.util.Scanner;
-
 import disc.CompactDisc;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.List;
 
-import utils.*;
+//import utils.*;
 import media.*;
 
 
@@ -94,5 +96,23 @@ public class Order {
             System.out.print(mediaCheck.getTitle() + " ### " + mediaCheck.getCategory() + " ### " + mediaCheck.getCost() + "\n");
         }
         System.out.println("Total cost: " + totalCost());
+    }
+
+    //********************************* Sort method **********************************
+    public void sortList() {
+        Collection<Media> collection = itemsOrdered;
+        Iterator<Media> iterator = collection.iterator();
+        if (collection instanceof List) {
+            Collections.sort((List)collection);
+        }
+        else {
+            System.out.println("Can't sort this collection");
+        }
+        
+        iterator = collection.iterator();
+        while (iterator.hasNext()) {
+            Media mediaCheck = (Media)iterator.next();
+            System.out.println(mediaCheck.getCost() + " ### " + mediaCheck.getTitle());
+        }
     }
 }
