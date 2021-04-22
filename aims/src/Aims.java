@@ -138,7 +138,7 @@ public class Aims {
                 case 2:
                     int count = 0;
                     if (anOrder.getNbOrdered() == 0) {
-                        System.out.println("You have no Ordered! Choose 1 on Menu to creat an Ordered!");
+                        System.out.println("You have no Ordered! Choose 1 on Menu to create an Ordered!");
                     }
                     else {                        
                         while (op2 != 0) {
@@ -213,6 +213,7 @@ public class Aims {
                             }
 
                         }
+                        op2 = 1;
                     }
                     break;
 
