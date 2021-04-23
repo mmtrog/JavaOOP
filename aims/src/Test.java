@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 //import java.util.Comparator;
 
 import disc.*;
@@ -16,6 +17,26 @@ public class Test
     
     public static void main(String[] args) {
         
+        /****************************************************** Data ******************************************************/
+
+        ArrayList<String> authorsList1 = new ArrayList<String>();
+        ArrayList<String> authorsList2 = new ArrayList<String>();
+        ArrayList<String> authorsList3 = new ArrayList<String>();
+        ArrayList<String> authorsList4 = new ArrayList<String>(); 
+
+        authorsList1.add("Tony buoi sang");
+        authorsList2.add("Tony buoi trua");
+        authorsList2.add("Tony buoi chieu");
+        authorsList3.add("Tony buoi toi");
+        authorsList3.add("Tony buoi chang vang");
+        authorsList3.add("Tony buoi hoang hon");
+        authorsList4.add("Tony buổi binh minh");
+        authorsList4.add("Tony buoi xe chieu");
+
+        Book b1 = new Book(9, "Tren duong bang", "SelfHelp", 159.55f, authorsList1);
+        Book b2 = new Book(10, "Tren duong cao toc", "Racer", 194.54f, authorsList2);
+        Book b3 = new Book(11, "Tren duong toan o ga", "The traffic of Vietnam", 114.54f, authorsList3);
+        Book b4 = new Book(12, "Tren duong dan sinh", "The traffic hack", 56.54f, authorsList4);
 
         ArrayList<Track> trackList1 = new ArrayList<Track>();
         ArrayList<Track> trackList2 = new ArrayList<Track>();
@@ -48,8 +69,9 @@ public class Test
         collection.add(cd1);
         collection.add(cd2);
 
+        /****************************************************** Collection Test ******************************************************/
 
-        Iterator<Media> iterator = collection.iterator(); // dùng nội dung của collection bằng iterator
+        /*Iterator<Media> iterator = collection.iterator(); // dùng nội dung của collection bằng iterator
 
         System.out.println("---------------------------------------");
 
@@ -77,6 +99,12 @@ public class Test
             Media mediaCheck = (Media)iterator.next();
             System.out.println(mediaCheck.getCost() + " ### " + mediaCheck.getTitle());
         }
-     
+        */
+        /****************************************************** Book content Test ******************************************************/
+
+        b1.setContent("Trong dep trai vo dich vo dich vo dich thien ha thien bo doi doi qua dang ahihi do ngok ngek");
+        
+        //b1.setContentTokens();
+        b1.setWordFrequency();
     }    
 }
