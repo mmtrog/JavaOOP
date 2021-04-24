@@ -1,12 +1,13 @@
 package media;
 
+import java.security.Key;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.TreeMap;
+
 
 public class Book extends Media {
     private ArrayList<String> authorsList = new ArrayList<String>();
@@ -63,7 +64,9 @@ public class Book extends Media {
     private ArrayList<String> contentTokens = new ArrayList<String>();
     
     public void setContentTokens() {
-        String[] arr = content.split("\\s");
+        String s = content.replaceAll("\\.", " "); //Replace with a space
+        s = s.replaceAll("\\,", " ");
+        String[] arr = s.split("\\s+");
         for (int i = 0; i < arr.length; i++) {
             contentTokens.add(arr[i]);
         }
@@ -76,7 +79,7 @@ public class Book extends Media {
             System.out.println("Can't sort this collection");
         }
         
-        //print tokens
+        //Print tokens
         /*iterator = collection.iterator();
         while (iterator.hasNext()) {
             String tokenCheck = (String)iterator.next();
@@ -86,17 +89,29 @@ public class Book extends Media {
 
 
     //Sorted Map
-    private Map<Integer, String> wordFrequency = new HashMap<Integer, String>();
+    private TreeMap<String, Integer> wordFrequency = new TreeMap<String, Integer>();
     
     public void setWordFrequency() {
         setContentTokens();
-        for (int i = 0; i < contentTokens.size(); i++) {
-            wordFrequency.put(i, contentTokens.get(i));
-        }
         
-        for (int i = 0; i < wordFrequency.size(); i++) {
-            System.out.println(i + ": " + wordFrequency.get(i));
+        
+        for (int i = 0; i < contentTokens.size(); i++) {
+            if(wordFrequency.containsKey(contentTokens.get(i))) {
+                wordFrequency.put(contentTokens.get(i), wordFrequency.get(contentTokens.get(i))  + 1);
+            }
+            else {
+                wordFrequency.put(contentTokens.get(i), 1);
+            }
         }
+
+        wordFrequency.forEach((k, v) -> {
+            if (v > 1) {
+                System.out.println(k + ":  " + v + " times");
+            }
+            else {
+                System.out.println(k + ":  " + v + " time");
+            }
+        });
     }
 
 

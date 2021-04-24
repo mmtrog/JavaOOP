@@ -102,7 +102,7 @@ public class Test
         */
         /****************************************************** Book content Test ******************************************************/
 
-        b1.setContent("Trong dep trai vo dich vo dich vo dich thien ha thien bo doi doi qua dang ahihi do ngok ngek");
+        b1.setContent("A BB C D, A A.\n B D C BB E . F.G, H H\tA B");
         
         //b1.setContentTokens();
         b1.setWordFrequency();
