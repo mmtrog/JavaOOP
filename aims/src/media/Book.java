@@ -87,6 +87,7 @@ public class Book extends Media {
         }*/
     }
 
+    private String infoTokens = "";
 
     //Sorted Map
     private TreeMap<String, Integer> wordFrequency = new TreeMap<String, Integer>();
@@ -106,13 +107,31 @@ public class Book extends Media {
 
         wordFrequency.forEach((k, v) -> {
             if (v > 1) {
+                infoTokens = infoTokens + "\n" + k + ":  " + v + " times";
+            }
+            else {
+                infoTokens = infoTokens + "\n" + k + ":  " + v + " time";
+            }
+        });
+
+        /*wordFrequency.forEach((k, v) -> {
+            if (v > 1) {
                 System.out.println(k + ":  " + v + " times");
             }
             else {
                 System.out.println(k + ":  " + v + " time");
             }
-        });
+        });*/
     }
 
+    @Override
+    public String toString() {
+        setWordFrequency(); //Need to create Word Frequency first
+        
+        String a = "Number of Token: " + String.valueOf(wordFrequency.size()) + "\n";    
+        String infoBook = a + infoTokens;
+        
+        return infoBook;
+    }
 
 }

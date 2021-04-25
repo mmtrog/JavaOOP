@@ -19,32 +19,17 @@ public class Aims {
         System.out.println("3. Delete item by id.");
         System.out.println("4. Display the items list of order.");
         System.out.println("5. Sort by cost of item.");
+        System.out.println("6. Show Book content tokens");
         System.out.println("0. Exit");
         System.out.println("--------------------------------");
         System.out.println("Please choose a number: 0-1-2-3-4");
     }
-      
-    public static void main(String[] args) {
+    
+    public static void main(String[] args) {    
         
-        //**************************************** Variables ****************************************
-
-        
-        Thread thread = new Thread(new MemoryDaemon());
-        thread.setDaemon(true);
-        thread.start();
-
-
-        Order anOrder = new Order(); 
-        Scanner scanner1 = new Scanner(System.in);
-        Scanner scanner2= new Scanner(System.in);
-        Scanner scanner3 = new Scanner(System.in);
-        Scanner scanner4 = new Scanner(System.in);
-        int op1 = 1;
-        int op2 = 1;
-        int op3;
-
         //**************************************** Data ****************************************
 
+        /********DVD********/
         DigitalVideoDisc dvd2 = new DigitalVideoDisc(1, "Weathering with you", "Animation", "AAA", 15, 15.54f);    
         DigitalVideoDisc dvd3 = new DigitalVideoDisc(2, "Penhouse", "Drama", "BBB", 56,56.45f);
         DigitalVideoDisc dvd4 = new DigitalVideoDisc(3, "My neighbor: Totoro", "Animation", "CCC", 18, 66.15f);
@@ -54,6 +39,8 @@ public class Aims {
         DigitalVideoDisc dvd8 = new DigitalVideoDisc(7, "My neighbor: Naruto", "Animation", "GGG", 28, 69.55f);
         DigitalVideoDisc dvd9 = new DigitalVideoDisc(8, "My neighbor: Sakura", "Animation", "HHH", 74, 153.15f);
         
+
+        /********Book********/
         ArrayList<String> authorsList1 = new ArrayList<String>();
         ArrayList<String> authorsList2 = new ArrayList<String>();
         ArrayList<String> authorsList3 = new ArrayList<String>();
@@ -83,15 +70,60 @@ public class Aims {
         Book b3 = new Book(11, "Tren duong toan o ga", "The traffic of Vietnam", 114.54f, authorsList3);
         Book b4 = new Book(12, "Tren duong dan sinh", "The traffic hack", 56.54f, authorsList4);
 
+        b1.setContent("University is the place where students get knowledge and new experiences. Studying in university gives a vast exposure to the student in his specified field. University builds a professional base in the student. \nTill their higher school students used to study in various fields. They have to read different subjects which are not in their career streams. \nTherefore they attend college or universities to get ample knowledge of their field. Universities and colleges have experienced staff in diverse fields. Everyone is professional in their stream therefore students gets the opportunity to learn from these persons various skills in their stream which is not possible while studying in higher school.");
+        b2.setContent("Secondly various projects, researches, assignments and practical scenarios are conducted in universities or colleges from where students get exposure and experience to various problems which they might have to face in their real life while practicing. \nLike in dentistry the students have to work on tooth for scaling, wiring etc from which they get practical exposure.");
+        b3.setContent("Almost for sure our parents are the best teachers at the beginning of our lives, which actually corresponds to the parents role in nature. \nParents are most committed and involved in teaching their children, they have a kind of instinct to sacrifice a part of themselves for the betterment of their children. They love us and have great patience while passing down their knowledge to us. They wish us a success and thus will not teach us bad things. \nAnd of course, implicit learning occurs when children unconsciously copy some of their parents habits and styles of behavior.");
+        b4.setContent("Nowadays, wherever we turn our gaze, we can see different types of food that are easier to prepare. It cannot be doubted that our eating style has encountered a revolutionary change in the last few decades. \nIt is the change in the type of food that has had the greatest influence. For instance, we can buy frozen food in a supermarket and just prepare it in a couple of minutes, whereas before it could have taken us maybe hours to prepare this kind of meal. Not only have the recipes of certain food types have been altered, but also new ones have been created. Examples include yet are not restricted to beef hamburgers, potato chips, readymade available yogurt, frozen meat and cold drinks. \nI would accept that this so called improvement changed our lives, but I believe there are some drawbacks as well.");
+
+
+        /********CD********/
         CompactDisc cd1 = new CompactDisc(13, "Hip Hop never die", "Hip Hop", "Trong dep trai", "Low G ft MCK", 0, 99.05f, trackList1);
         CompactDisc cd2 = new CompactDisc(14, "Son Tung M-TP", "Underground", "Trong dep trai", "Nguyen Son Tung", 0, 19.25f, trackList2);
 
+
+        /********List********/
         Media arrMediaList[] = {dvd2, dvd3, dvd4, dvd5, dvd6, dvd7, dvd8, dvd9, cd1, cd2, b1, b2, b3, b4};
         DigitalVideoDisc arrDvdList[] = {dvd2, dvd3, dvd4, dvd5, dvd6, dvd7, dvd8, dvd9};
         CompactDisc arrCdList[] = {cd1, cd2};
         Book arrBookList[] = {b1, b2, b3, b4};
         
-        //***********************************************************
+        
+        
+        
+        
+
+
+
+
+
+
+
+
+        //**************************************** Variables ****************************************
+
+        
+        Thread thread = new Thread(new MemoryDaemon());
+        thread.setDaemon(true);
+        thread.start();
+
+
+        Order anOrder = new Order(); 
+        Scanner scanner1 = new Scanner(System.in);
+        Scanner scanner2= new Scanner(System.in);
+        Scanner scanner3 = new Scanner(System.in);
+        Scanner scanner4 = new Scanner(System.in);
+        Scanner scanner5 = new Scanner(System.in);
+        int op1 = 1;
+        int op2 = 1;
+        int op3;
+        int op4;
+
+
+
+
+        
+        
+        //***************************************************************************************************************
         
         
 
@@ -244,6 +276,26 @@ public class Aims {
                     break;
                 case 5:
                     anOrder.sortList();
+                    break;
+                case 6:
+                    int a;
+                    System.out.println("\nLIST OF BOOKS:\n");
+                    for (int i = 0; i < arrBookList.length; i++) {
+                        a = i + 1;
+                        System.out.println(a + ". " + arrBookList[i].getTitle());
+                    }
+                    System.out.println("Choose number of book to show content token:");
+                    
+                    op4 = scanner5.nextInt();
+                    int b = op4 + 1;
+                    System.out.println("\n");
+                    
+                    if (b >= 1 && b-1 <= arrBookList.length ) {
+                        System.out.println(arrBookList[op2].toString());
+                    }
+                    else {
+                        System.out.println("Not exist!");
+                    }
                     break;
                 default:
                     break;

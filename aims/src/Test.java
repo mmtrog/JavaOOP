@@ -103,8 +103,10 @@ public class Test
         /****************************************************** Book content Test ******************************************************/
 
         b1.setContent("A BB C D, A A.\n B D C BB E . F.G, H H\tA B");
-        
+
         //b1.setContentTokens();
         b1.setWordFrequency();
+        
+        System.out.println(b1.toString());
     }    
 }
