@@ -1,3 +1,4 @@
+
 import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.Optional;
@@ -30,6 +31,7 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
@@ -121,25 +123,43 @@ public class OrderGUI extends Application {
         rootPane.setBottom(bottomLabel);
         rootPane.setPrefSize(1015, 600);
 
-        // Add item Pane
+        // Add item Layout
         Label label = new Label("Choose type of item: ");
         CheckBox boxDVD = new CheckBox("DVD");
         CheckBox boxCD = new CheckBox("CD");
         CheckBox boxBook = new CheckBox("Book");
         Button btnChoose = new Button("Submit");
-        
-        BorderPane addItemPane = new BorderPane();
-        addItemPane.setTop(label);
 
+        btnChoose.setOnAction(evt -> {
+            String message = "You choose: ";
+            if (boxDVD.isSelected()) {
+                message += boxDVD.getText();
+            }
+            if(boxCD.isSelected()) {
+                message += boxCD.getText();
+            }
+            if(boxBook.isSelected()) {
+                message += boxBook.getText();
+            }
+            System.out.println(message);
+        });
+
+        HBox layoutH = new HBox(10);
+        layoutH.getChildren().addAll(boxBook, boxDVD, boxCD);
+        
+        VBox layoutV = new VBox(10);
+        layoutV.getChildren().addAll(label, layoutH, btnChoose);
+        
         // Scene
         Scene rootScene = new Scene(rootPane, 1015, 600);
-        //Scene createNewOrderScene = new Scene(createNewOrderPane, 1015, 600);
+        Scene addItemScene = new Scene(layoutV, 1015, 600);
 
         
         // First scene
         primaryStage.setScene(rootScene);
         primaryStage.setTitle("Order GUI");
         primaryStage.show();
+
 
         // Event handle
         btnCreateNewOrder.addEventHandler(MouseEvent.MOUSE_PRESSED, new EventHandler<MouseEvent>(){
@@ -169,6 +189,9 @@ public class OrderGUI extends Application {
             @Override
             public void handle(MouseEvent evt) {
                 btnAddItem.setEffect(null);
+                primaryStage.setScene(addItemScene);
+                primaryStage.setTitle("Add item layout");
+                primaryStage.show();
             }
         });
 
@@ -240,9 +263,9 @@ public class OrderGUI extends Application {
             public void handle(MouseEvent evt) {
                 btnExit.setEffect(null);
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                alert.setTitle("Confirmation");
-                alert.setHeaderText("Alert information: ");
-                alert.setContentText("Do you want to quit?");
+                alert.setTitle("ALERT");
+                alert.setHeaderText("DO YOU WANT TO EXIT?");
+                alert.setContentText("Confirm");
 
                 ButtonType buttonTypeYes = new ButtonType("Yes", ButtonData.YES);
                 ButtonType buttonTypeNo = new ButtonType("No", ButtonData.NO);
